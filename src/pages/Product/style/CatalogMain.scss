@@ -1,0 +1,38 @@
+.catalog{
+  &__inner-product{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &__inner-product{
+    margin-bottom: 30px;
+  }
+}
+.navigation{
+  display: flex;
+  font-size: 21px;
+  align-items: center;
+  justify-content: center;
+  &__block{
+    width: 25px;
+    height: 25px;
+    border: 1px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: green; 
+    cursor: pointer;
+    & + & {
+      margin-left: 10px;
+    }
+    &.active{
+      transform: scale(1.2);
+    }
+  }
+  &__prev, &__next{
+    cursor: pointer;
+    color: rgb(255, 217, 0);
+    padding: 5px;
+  }
+
+}

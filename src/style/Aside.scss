@@ -1,0 +1,21 @@
+.aside{
+  flex: 0 0 340px;
+  
+}
+.catigories{
+    &__inner{
+    display: flex;
+    padding: 10px 5px;
+    cursor: pointer;
+    &:hover{
+      background-color: lightgray;
+    }
+  }
+  &__img{
+    margin-right: 15px;
+  }
+  &__name{
+    color: #1290D7;
+    font-size: 23px;
+  }
+}

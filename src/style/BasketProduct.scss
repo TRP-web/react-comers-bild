@@ -1,0 +1,162 @@
+.basket-products{
+  &__block{
+    & + & {
+      margin-top: 15px;
+    }
+    display: flex;
+    padding: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid lightgray;
+    justify-content: space-between;
+    
+  }
+  &__visual{
+    display: flex;
+    width: calc(100% - 55px);
+
+  }
+  &__img{
+    max-height: 130px;
+    flex: 0 0 100px;
+    img{
+      height: 100px;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+  &__title-block{
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 100%;
+  }
+  &__title{
+    font-size: 25px;
+  }
+  &__prise{
+    margin-left: auto;
+    color: red;
+    font-size: 24px;
+  }
+}
+
+.basket-count{
+  display: flex;
+  &__dic{
+    font-weight: 700;
+    cursor: pointer;
+  }
+  &__sum{
+
+  }
+  &__inc{
+    font-weight: 700;
+    cursor: pointer;
+  }
+  &__dic, &__sum, &__inc{
+    
+    font-size: 19px !important;
+    user-select: none;
+    padding: 3px 0;
+    border: 1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    font-size: 16px;
+  }
+}
+
+.basket-products{
+  margin-top: 39px;
+  overflow-y: scroll;
+  min-height: calc(100% - 37px);
+  max-height: calc(100% - 37px);
+  scrollbar-color: #458245 #714826; 
+  &::-webkit-scrollbar {
+    cursor: pointer;
+    width: 6px; /* ширина для вертикального скролла */
+    background-color: #fff;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+    border-radius: 3px;
+    box-shadow: inset 1px 1px 10px #f3faf7;
+    cursor: pointer;
+  }
+  &__del{
+    cursor: pointer;
+  }
+}
+
+.basket{
+  position: fixed;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.39);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  &__inner{
+    background-color: #fff;
+    width: 70%;
+    min-height: 500px;
+    height: 80vh;
+    padding: 15px;
+    padding-bottom: 3px;
+    position: relative;
+    padding-right: 8px;
+  }
+  &__name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    background-color: #fff;
+    width: calc(100% - 25px);
+    border-bottom: 1px solid lightgray;
+  }
+  &__title{
+    margin: 0;
+  }
+  &__closes{
+    cursor: pointer;
+  }
+  &__news{
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: #FF6F6F;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    top: -4px;
+    left: -10px;
+    font-size: 16px;
+  }
+  &__total{
+    border-top: 1px solid lightgrey;
+    width: 70%;    
+    background-color: #fff;
+    padding: 0 15px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__prise{
+
+  }
+  &__formet{
+
+  }
+}
+

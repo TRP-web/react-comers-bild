@@ -1,0 +1,33 @@
+.slider{
+  position: relative;
+  margin-top: 20px;
+  min-width: 0;
+  margin-bottom: 50px;
+  &__slide{
+    display: flex;
+    justify-content: center;
+    height: 260px;
+    img{
+      max-width: 100%;
+      display: block;
+    }
+  }
+  &__prev, &__next{
+    width: 27px;
+    height: 63px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    z-index: 11;
+  }
+  &__prev{
+    transform: rotate(180deg);
+    left: 0;
+  }
+  &__next{
+    right: 0;
+  }
+}
+

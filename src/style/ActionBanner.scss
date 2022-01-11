@@ -1,0 +1,17 @@
+.action{
+  &__inner{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.action-banner{
+  max-width: 360px;
+  img{
+    width: 100%;
+    margin-bottom: 7px;
+  }
+  &__title{
+    margin: 0;
+  }
+}
