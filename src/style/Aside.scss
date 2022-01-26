@@ -1,6 +1,8 @@
 .aside{
   flex: 0 0 340px;
-  
+  &__link{
+    text-decoration: none;
+  }
 }
 .catigories{
     &__inner{

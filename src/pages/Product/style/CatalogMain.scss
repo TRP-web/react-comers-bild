@@ -36,3 +36,25 @@
   }
 
 }
+
+.catalog__inner-product{
+  width: 100%;
+  min-height: 642px;
+  @media (max-width:860px) {
+    min-height: 300px;
+  }
+}
+
+.catalog-inner{
+  width: 100%;
+}
+
+.no-product{
+  font-size: 45px;
+  color: lightgrey;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

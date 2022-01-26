@@ -1,15 +1,14 @@
 .basket-products{
   &__block{
     & + & {
-      margin-top: 15px;
+      border-top: 1px solid lightgray;
     }
     display: flex;
-    padding: 10px;
-    max-width: 800px;
-    margin: 0 auto;
-    border: 1px solid lightgray;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 30px;
     justify-content: space-between;
-    
+    padding-right: 30px;
   }
   &__visual{
     display: flex;
@@ -20,7 +19,7 @@
     max-height: 130px;
     flex: 0 0 100px;
     img{
-      height: 100px;
+      height: 120px;
       margin: 0 auto;
       display: block;
     }
@@ -33,12 +32,18 @@
     flex-basis: 100%;
   }
   &__title{
-    font-size: 25px;
+    font-size: 20px;
   }
   &__prise{
     margin-left: auto;
     color: red;
     font-size: 24px;
+  }
+  &__del{
+    color: #FF5858;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
   }
 }
 
@@ -49,31 +54,40 @@
     cursor: pointer;
   }
   &__sum{
-
+    width: 63px;
+    border: 1px solid #128fd78a;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: black;
+    height: 35px;
+    margin: 0 10px;
   }
   &__inc{
     font-weight: 700;
     cursor: pointer;
   }
   &__dic, &__sum, &__inc{
-    
-    font-size: 19px !important;
     user-select: none;
-    padding: 3px 0;
-    border: 1px solid lightgray;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30px;
-    font-size: 16px;
+  }
+  &__dic{
+    width: 25px;
+    cursor: pointer;
+  }
+  &__inc{
+    cursor: pointer;
   }
 }
 
 .basket-products{
-  margin-top: 39px;
   overflow-y: scroll;
-  min-height: calc(100% - 37px);
-  max-height: calc(100% - 37px);
+  min-height: 100%;
+  max-height: 100%;
   scrollbar-color: #458245 #714826; 
   &::-webkit-scrollbar {
     cursor: pointer;
@@ -105,25 +119,30 @@
   left: 0;
   &__inner{
     background-color: #fff;
-    width: 70%;
+    width: 50%;
     min-height: 500px;
-    height: 80vh;
-    padding: 15px;
-    padding-bottom: 3px;
+    height: 50vh;
     position: relative;
-    padding-right: 8px;
   }
   &__name{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
     background-color: #fff;
-    width: calc(100% - 25px);
-    border-bottom: 1px solid lightgray;
+    width: 50%;
+    border-bottom: 1px solid rgba(211, 211, 211, 0.5);
+    padding-bottom: 10px;
+    margin-top: 10px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    padding-top: 10px;
+    padding-right: 15px;
   }
   &__title{
     margin: 0;
+    margin-left: 45px;
+    margin-top: 10px;
+    font-size: 32px;
   }
   &__closes{
     cursor: pointer;
@@ -143,20 +162,38 @@
     font-size: 16px;
   }
   &__total{
-    border-top: 1px solid lightgrey;
-    width: 70%;    
+    width: 50%;
     background-color: #fff;
-    padding: 0 15px;
-    height: 60px;
+    padding: 45px 15px;
+    
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    z-index: 1;
+    
   }
   &__prise{
-
+    color: #FF5858;
+    font-size: 32px;
+    font-weight: 700;
+    margin-right: 20px;
   }
   &__formet{
-
+    background-color: #1290D7;
+    border: none;
+    border-radius: 7px;
+    color: #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    height: 50px;
+    width: 250px;
+  }
+  &__back{
+    color: #4672e1;
+    margin-left: 20px;
   }
 }
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import '../style/Header.scss'
 import BasketProduct from './BasketProduct';
 
@@ -46,13 +46,13 @@ const Header = () => {
         basketActive
           ?
           <div className="basket" onClick={basketReove}>
-            <div className="basket__inner" onClick={e => e.stopPropagation()}>
-              <div className="basket__name">
-                <h2 className="basket__title">basket</h2>
-                <div className="basket__closes" onClick={basketReove}>
-                  <img src="/img/close.png" width="30px" alt="close" />
-                </div>
+            <div className="basket__name">
+              <h2 className="basket__title">basket</h2>
+              <div className="basket__closes" onClick={basketReove}>
+                <img src="/img/close.png" width="30px" alt="close" />
               </div>
+            </div>
+            <div className="basket__inner" onClick={e => e.stopPropagation()}>
               <div className="basket-products">
                 {
                   basket.map(product => {
@@ -65,17 +65,22 @@ const Header = () => {
 
             </div>
             <div className="basket__total" onClick={e => e.stopPropagation()}>
-              <span className="basket__prise">Total: {total}</span>
-              <button className="basket__formet">
-                Сheckout
-              </button>
+              <span className='basket__back' onClick={basketReove}>Back to shop</span>
+              <div>
+                <span className="basket__prise">{total}$</span>
+                <button className="basket__formet">
+                  Сheckout
+                </button>
+              </div>
             </div>
           </div> : false
       }
       <div className="container">
         <div className="header__inner">
           <div className="header__logo">
-            <img src="/img/Logo.svg" alt="logo" />
+            <Link to="/" className="header__link">
+              <img src={window.location.origin + '/img/Logo.svg'} alt="logo" />
+            </Link>
           </div>
           <form>
             <input type="text" placeholder="Search..." />

@@ -7,17 +7,18 @@ import MainFilter from './MainFilter'
 import "./style/CatalogMain.scss"
 
 const CatalogMain = () => {
-  const productAll = useSelector(state => state.productAll.productAll)
-  console.log(productAll)
+  const productGet = useSelector(state => state.productAll.productGet)
+  const productSort = useSelector(state => state.productAll.productSort)
   const [pageAll, setPageAll] = useState(1)
   const [productView, setProductView] = useState([])
   const [pageView, setPageView] = useState(1)
   const [pageArray, setPageArray] = useState([])
+  const [hasProducts, setHasProducts] = useState(true)
   const dispatch = useDispatch()
   const getProductAll = async () => {
     axios.get("https://trp-web.github.io/React-comers/json/product/productAll.json")
       .then(res => {
-        dispatch({ type: 'PRODUCT_CHENGE', filterArray: res.data })
+        dispatch({ type: 'PRODUCT_GET', productGet: res.data })
         setPageAll(Math.ceil(res.data.length / 15))
         setProductView(res.data.slice((pageView - 1) * 15, pageView * 15 - 1))
       })
@@ -30,12 +31,26 @@ const CatalogMain = () => {
     }
   }
   const viewGenereit = () => {
-    if (productAll) {
-      (function () {
-        setProductView(productAll.slice((pageView - 1) * 15, pageView * 15 - 1))
-      }())
+    console.log(productSort);
+    if (productSort[0] === 'no products') {
+      if (hasProducts === true) {
+        setHasProducts(false)
+        setPageAll(1)
+      }
+      console.log('no')
+    } else {
+      if (hasProducts === false) {
+        setHasProducts(true)
+      }
+      if (productSort.length === 0) {
+        setProductView(productGet.slice((pageView - 1) * 15, pageView * 15 - 1))
+      } else {
+        setProductView(productSort.slice((pageView - 1) * 15, pageView * 15 - 1))
+        setPageAll(Math.ceil(productSort.length / 15))
+      }
     }
   }
+
   const clickPage = (pageNamber) => {
     setPageView(pageNamber)
   }
@@ -52,31 +67,31 @@ const CatalogMain = () => {
     }
   }
 
-  useEffect(viewGenereit, [pageView, productAll])
+  useEffect(allGetnereit, [productView, productSort, pageAll])
 
-  useEffect(allGetnereit, [pageAll, productAll])
+  useEffect(viewGenereit, [pageView, productSort])
+
 
   useEffect(() => {
     getProductAll()
   }, [])
 
   return (
-    <div>
+    <div className='catalog-inner'>
       <h1 className="catalog__title">
         Catalog
       </h1>
-      <MainFilter
-        allGetnereit={allGetnereit}
-        viewGenereit={viewGenereit}
-        getProductAll={getProductAll}
-      />
+      <MainFilter />
       <div className="catalog__inner-product">
         {
-          productView.map(product => {
-            return (
-              <Product product={product} key={product.id} />
-            )
-          })
+          hasProducts ?
+            productView.map(product => {
+              return (
+                <Product product={product} key={product.id} />
+              )
+            })
+            :
+            <div className='no-product'>no product</div>
         }
       </div>
       <div className="navigation">
